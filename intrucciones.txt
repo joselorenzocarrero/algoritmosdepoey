@@ -1,0 +1,6 @@
+conexion a mongodb:
+Para conectar con la base de datos poey desde el cmd hay que introducir en el cmd directamente y sin pasar por 
+mongosh "mongodb+srv://cluster0.2ycjt.mongodb.net/poey" --apiVersion 1 --username joselorenzocarrero
+y preguntará la contraseña que es: 
+Julio2022 
+entonces se tiene la base de datos on line. 

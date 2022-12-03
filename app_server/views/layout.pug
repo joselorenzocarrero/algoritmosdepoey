@@ -1,0 +1,117 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(charset="utf-8")
+    title= title    
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css', rel='stylesheet')
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js')
+    link(href='https://fonts.googleapis.com/css?family=Barriecito', rel='stylesheet')
+    style.      
+      img{border-left: 6px solid orange;}
+        li.list-group-item {background-color: White}
+      body {
+      font-family: "Lato", sans-serif;
+      }
+      /* Fixed sidenav, full height */
+      .sidenav {
+      height: 100%;
+      width: 350px;
+      position: relative;
+      z-index: 1;
+      background-color: white;
+      overflow-x: hidden;
+      padding-top: 20px;
+      }
+      /* Style the sidenav links and the dropdown button */
+      .sidenav a, .dropdown-btn {
+      padding: 6px;
+      text-decoration: none;
+      font-size: 22px;
+      color: darkblue;
+      display: block;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      outline: none;
+      }
+      /* On mouse-over */
+      .sidenav a:hover, .dropdown-btn:hover {
+      background-color: Linen;
+      color: blue;
+      }      
+      /* Add an active class to the active dropdown button */
+      .active {
+      background-color: White;
+      color: blue;
+      }
+      /* Dropdown container */
+      .dropdown-container {
+      display: none;
+      background-color: white;
+      padding-left: 20px;
+      }      
+      /* Some media queries for responsiveness */
+      @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+      }
+      div.transbox {
+        margin: 25px;
+        border:1px solid black;        
+      }
+      #l1 {
+        animation-name: example;
+        animation-duration: 1s;
+      }
+      @keyframes example {
+        from {opacity:0.1;}
+        to {opacity:1;}
+      }      
+      @keyframes example2 {
+        from {opacity:1;}
+        to {opacity:0.1;}
+      }                 
+  body 
+    .p-5.text-center(style='background-image:url("/images/Melbourne.jpg"); background-position: center; background-size: cover; position: relative;background-color: #cccccc; height: 350px;') 
+      h1(style='position:relative; top: 3%; font-family:barriecito; font-size: 7vw; font_weight:bold; letter-spacing:10px; color: lightyellow') Los Algoritmos del 
+        span(style='font-size:8vw; color: red') Prof Barrio    
+    .container.mt-1   
+      .row
+        .col-lg-4(style='background-color:white')
+          .sidenav         
+            ul.list-group.list-group-flush               
+              each coleccion in colecciones[0]
+                li.list-group-item
+                  button.dropdown-btn= coleccion.familia 
+                  .dropdown-container
+                    each patologia in coleccion.patologia
+                      a(href='/elementos/?patologia='+ patologia) 
+                        p(style='font-size:20px')= patologia                                                  
+        .col-lg-8 
+          block content
+    script.      
+      /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+          } else {
+              dropdownContent.style.display = "block";
+          }
+        });
+      }
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js', integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49', crossorigin='anonymous')
+    script(src='/javascripts/bootstrap.min.js')
+    
+    
+
+  
+

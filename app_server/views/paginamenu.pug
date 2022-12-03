@@ -1,0 +1,11 @@
+extends layout
+block content 
+  .row.banner    
+    each coleccion in colecciones
+      .card.transbox#l1
+        h1#l1
+          a.nav-link.active(href='/elementos/?patologia=' + coleccion + '&view=#section')= coleccion
+  #section        
+
+  
+
