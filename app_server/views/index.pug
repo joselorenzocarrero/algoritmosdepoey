@@ -10,7 +10,10 @@ block content
             #myModal.modal.fade
               .modal-dialog
                 .modal-content
-                  .modal-body= coleccion.nota
+                  .modal-body
+                    each parrafo in coleccion.nota
+                     parrafo
+                     br
                   .modal-footer
                     button.btn.btn-danger(type='button', data-bs-dismiss='modal') Close
   #section.container-fluid.h4
