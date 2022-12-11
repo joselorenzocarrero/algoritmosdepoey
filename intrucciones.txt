@@ -1,6 +1,8 @@
 conexion a mongodb:
-Para conectar con la base de datos poey desde el cmd hay que introducir en el cmd directamente y sin pasar por 
+Para conectar con la base de datos poey desde el cmd hay que introducir en el cmd directamene:
 mongosh "mongodb+srv://cluster0.2ycjt.mongodb.net/poey" --apiVersion 1 --username joselorenzocarrero
 y preguntará la contraseña que es: 
 Julio2022 
 entonces se tiene la base de datos on line. 
+La contraseña de github ahora es Julio-2022
+la explicación buena para despegar la aplicación esta en https://devcenter.heroku.com/articles/git#create-a-heroku-remote

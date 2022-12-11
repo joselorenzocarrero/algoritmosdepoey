@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 let MONGODB_URI = "mongodb://localhost/poey";
 if (process.env.NODE_ENV === 'production') {
-  MONGODB_URI = 'mongodb+srv://joselorenzocarrero:Julio2022@cluster0.2ycjt.mongodb.net/poey?retryWrites=true&w=majority';
+  MONGODB_URI = 'mongodb+srv://joselorenzocarrero:Julio2022@cluster0.2ycjt.mongodb.net/barrio?retryWrites=true&w=majority';
 }
 mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 /*mongoose.connect(
