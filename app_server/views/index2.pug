@@ -5,13 +5,15 @@ block content
       .card.transbox#l1
         h3#l1
           a.nav-link.active(href='/vientos/?matricula=' + coleccion.matricula + '&papa=' + coleccion.papa + '&view=#section', style='color:' + coleccion.color)= coleccion.elemento
-          -if (coleccion.nota !=="")
+          -if (coleccion.nota[0] !=="")
             button.btn.btn-primary(type='button', data-bs-toggle='modal', data-bs-target='#my'+coleccion.matricula) info
             .modal.fade(id='my'+coleccion.matricula)
               .modal-dialog
                 .modal-content
                   .modal-body
-                    = coleccion.nota
+                    each parrafo in coleccion.nota
+                      p= parrafo 
+                      br                    
                   .modal-footer
                     button.btn.btn-danger(type='button', data-bs-dismiss='modal') cerrar  
   #section.container-fluid.h4

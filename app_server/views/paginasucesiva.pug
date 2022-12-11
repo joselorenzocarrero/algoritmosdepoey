@@ -11,7 +11,9 @@ block content
               .modal-dialog
                 .modal-content
                   .modal-body
-                    = coleccion.nota
+                    each parrafo in coleccion.nota
+                      p= parrafo 
+                      br
                   .modal-footer
                     button.btn.btn-danger(type='button', data-bs-dismiss='modal') cerrar               
   #section.container-fluid.h4

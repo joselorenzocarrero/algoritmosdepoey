@@ -5,12 +5,15 @@ block content
       .card.transbox#l1 
         h3#l1
           a.nav-link(href='/poeys/?algoritmo=' + coleccion.numero + '&view=#section')= coleccion.algoritmo
-          -if (coleccion.nota !=="")
+          -if (coleccion.nota[0] !=="")
             button#w.btn.btn-primary(type='button', data-bs-toggle='modal', data-bs-target='#myModal') info
             #myModal.modal.fade
               .modal-dialog
                 .modal-content
-                  .modal-body= coleccion.nota
+                  .modal-body
+                    each parrafo in coleccion.nota
+                      p= parrafo 
+                      br                    
                   .modal-footer
                     button.btn.btn-danger(type='button', data-bs-dismiss='modal') Close
   #section.container-fluid.h4
