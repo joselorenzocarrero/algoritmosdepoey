@@ -46,8 +46,7 @@ const pulsaviento = (req, res) => {
     .exec((err, vientos) => {  
       if (vientos){
         console.log ("aqui lo que se encuentra" + JSON.parse(JSON.stringify(vientos)));
-        matriz1[1] = vientos;
-        console.log("matriz1.5" + JSON.parse(JSON.stringify(matriz1[5])));
+        matriz1[1] = vientos;        
         /*matrices.dni.push(req.query.matricula);        
         for (let i = matrices.resultado.length - 1; i > 0; i--){
           if(matrices.resultado[i].papa>pa) {
@@ -70,7 +69,6 @@ const pulsaviento = (req, res) => {
          .json(matriz1);
       };   
       if (!vientos) {
-        console.log ("foise")
         return res
           .status(404)
           .json({
