@@ -45,9 +45,10 @@ const pulsaviento = (req, res) => {
     .find({papa:req.query.matricula})
     .exec((err, vientos) => {  
       if (vientos){
-        //console.log(JSON.parse(JSON.stringify(vientos)));
-        matriz1[1] = vientos
-        matrices.dni.push(req.query.matricula);        
+        console.log ("aqui lo que se encuentra" + JSON.parse(JSON.stringify(vientos)));
+        matriz1[1] = vientos;
+        console.log("matriz1.5" + JSON.parse(JSON.stringify(matriz1[5])));
+        /*matrices.dni.push(req.query.matricula);        
         for (let i = matrices.resultado.length - 1; i > 0; i--){
           if(matrices.resultado[i].papa>pa) {
             matrices.resultado.splice(i,1);
@@ -61,7 +62,7 @@ const pulsaviento = (req, res) => {
             matrices.resultado[i].color = "red";            
           }           
         }      
-        /*matrices.resultado = matrices.resultado.concat(matriz1[1]);              
+        matrices.resultado = matrices.resultado.concat(matriz1[1]);              
         matriz1[1] = matrices.resultado;*/ 
         //console.log('ahora matriz1 es..' + matriz1); 
         return res
@@ -69,6 +70,7 @@ const pulsaviento = (req, res) => {
          .json(matriz1);
       };   
       if (!vientos) {
+        console.log ("foise")
         return res
           .status(404)
           .json({
