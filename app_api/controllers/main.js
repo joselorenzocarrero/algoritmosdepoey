@@ -12,7 +12,8 @@ const index = (req, res) => {
   Poe    
     .find({papa:0,algoritmo:req.query.algoritmo})
     .exec((err, vientos) => {
-      if (vientos){        
+      if (vientos){ 
+        console.log("pasa vientos en index/main/app_api")       
         matriz1[1] = vientos;
         //matrices.resultado = matriz1[1];
         console.log(JSON.stringify(matriz1));
@@ -44,8 +45,8 @@ const pulsaviento = (req, res) => {
    //.findById(req.params.id)
     .find({papa:req.query.matricula})
     .exec((err, vientos) => {  
-      if (vientos){
-        console.log ("aqui lo que se encuentra" + JSON.parse(JSON.stringify(vientos)));
+      if (vientos.length > 0){              
+        console.log ("pasa pulsaviento en main/app_api:" + vientos.length + vientos);
         matriz1[1] = vientos;        
         /*matrices.dni.push(req.query.matricula);        
         for (let i = matrices.resultado.length - 1; i > 0; i--){
@@ -67,7 +68,18 @@ const pulsaviento = (req, res) => {
         return res
          .status(200)
          .json(matriz1);
-      };   
+      }; 
+      if (vientos.length == 0){ 
+        Poe
+          .find({matricula:req.query.matricula})
+          .exec((err, vientos) => {
+          console.log ("pasa la nueva matriz de la matricula:");
+          matriz1[1] = vientos; 
+          return res
+           .status(200)
+           .json(matriz1);             
+        }) 
+      }
       if (!vientos) {
         return res
           .status(404)

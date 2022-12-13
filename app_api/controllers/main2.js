@@ -5,11 +5,11 @@ let matriz = [];
 let matriz1 = [];
 let patologia = [];
 const menu = (req,res) => {
-  console.log('pasa app-api')
+  console.log('llega a menu main2/app_api')
   matriz1[0] = matriz;
   matriz1[1] = [];
   if (matriz){ 
-    console.log("matriz recibida para el menu")  
+    console.log("matriz recibida en menu main2/app_api")  
     return res
       .status(200)
       .json(matriz1);        
@@ -20,7 +20,7 @@ const index = (req, res) => {
     .find({patologia:req.query.patologia})
     .exec((err, colecciones) => {
       if (colecciones){
-        console.log('ahí va index; ' )
+        console.log('pasa index main2/app_api; ')
         matriz1[1]= colecciones
         console.log(JSON.stringify(matriz1[1]))        
         return res

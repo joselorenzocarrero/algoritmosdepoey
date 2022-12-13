@@ -6,3 +6,4 @@ Julio2022
 entonces se tiene la base de datos on line. 
 La contraseña de github ahora es Julio-2022
 la explicación buena para despegar la aplicación esta en https://devcenter.heroku.com/articles/git#create-a-heroku-remote
+Para borrar documentos...

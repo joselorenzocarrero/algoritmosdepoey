@@ -1,16 +1,16 @@
 /* GET homepage , al controler se le llama "index", que llama al vieww "index"*/
 const request = require('request');
 const apiOptions = {
-  server:"http://localhost:5000"
-};
-if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = 'https://algoritmosdepoey.herokuapp.com';
-};
+    server:"http://localhost:5000"
+  };
+  if (process.env.NODE_ENV === 'production') {
+    apiOptions.server = 'https://algoritmosdepoey.herokuapp.com';
+  };
 const requestOptions = {
-  url: 'https://algortimosdepoey.herokuapp.com/api/path',
-  method: 'GET',
-  json: {},  
-};
+    url: 'https://algortimosdepoey.herokuapp.com/api/path',
+    method: 'GET',
+    json: {},  
+  };
 request(requestOptions, (err, response, body) => {
   if (err) {
     console.log(err);
@@ -28,8 +28,9 @@ const paginainicial = (req, res, responsebody) => {
 const paginasucesiva = (req, res, responsebody) => {
   res.render('paginasucesiva', {colecciones: responsebody});
 }
-const index = (req, res) => {
+const index = (req, res) => {  
   const path = '/api/poeys/?algoritmo=' + req.query.algoritmo
+  console.log('llega a index main/app-server')
   const requestOptions = {
     url: `${apiOptions.server}${path}`,
     method: 'GET',
@@ -38,6 +39,7 @@ const index = (req, res) => {
   request(
     requestOptions,
     (err, response, body) => {
+      console.log("pasa index/main/app_server")
       paginainicial(req, res, body);
     }
   );
@@ -48,7 +50,7 @@ const pulsaviento = (req, res) => {
 //  const prueba2 = req.query.papa
 //  console.log('app_server: ' + prueba)
   const path = '/api/vientos/?matricula=' + req.query.matricula + '&papa=' + req.query.papa
-  console.log('matricula: ' + path)
+  console.log('llega a pulsaviento main/app-server');
   const requestOptions = {
     url: `${apiOptions.server}${path}`,
     method: 'GET',
@@ -57,6 +59,7 @@ const pulsaviento = (req, res) => {
   request(
     requestOptions,
     (err, response, body) => {
+      console.log("pasa pulsaviento/main/app_server")
       paginasucesiva(req, res, body);
     }
   );
