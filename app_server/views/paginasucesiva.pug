@@ -3,7 +3,8 @@ block content
   .row.banner
       -if(colecciones[1].length == 1)
         each coleccion in colecciones[1]
-          p= coleccion.nota   
+          each parrafo in coleccion.nota 
+            p= parrafo   
       -if(colecciones[1].length > 1) 
         each coleccion in colecciones[1]
           .card.transbox#l1
